@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@utility bg-primary {
+    background-color: #FFC09F;
+}
+
+@utility text-primary {
+    color: #FFC09F;
+}
+
+@utility bg-secondary {
+    background-color: #FFEE93;
+}
+
+@utility text-secondary {
+    color: #FFEE93;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}

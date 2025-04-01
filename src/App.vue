@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <p class="p-6 bg-black">oe</p>
+    <p class="p-6 bg-black text-primary">oe</p>
   </header>
 
   <RouterView />
