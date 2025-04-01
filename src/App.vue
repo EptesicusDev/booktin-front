@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import NavbarComponent from '@/components/NavbarComponent.vue'
 </script>
 
 <template>
   <header>
-    <p class="p-6 bg-black text-primary">oe</p>
+    <NavbarComponent />
   </header>
-
   <RouterView />
 </template>

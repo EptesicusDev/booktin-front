@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @utility bg-primary {
-    background-color: #FFC09F;
+    background-color: #E45F17;
 }
 
 @utility text-primary {
-    color: #FFC09F;
+    color: #E45F17;
 }
 
 @utility bg-secondary {
-    background-color: #FFEE93;
+    background-color: #FFEDD7;
 }
 
 @utility text-secondary {
-    color: #FFEE93;
+    color: #FFEDD7;
 }
 
 body {
