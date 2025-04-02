@@ -1,41 +1,38 @@
-<script lang="ts" setup>
-
-import { useRouter } from 'vue-router'
+<script setup lang="ts">
 import { ref } from 'vue'
 import { supabase } from '@/supabase'
+import { useRouter } from 'vue-router'
 
-
-const router = useRouter()
+const { push: routerPush } = useRouter()
 
 const email = ref('')
+const username = ref('')
 const password = ref('')
 
-const onSubmit = async()=>{
-    if(!email.value && !password.value) return;
-
-    const {error} = await supabase.auth.signInWithPassword({
-        email: email.value,
-        password: password.value
-    })
-    if(error){
-        alert(error.message)
-    }else{
-        router.push({name:'/'})
-    }
-    
+const onSubmit = async () => {
+  if (!email.value || !username.value || !password.value) return
+  const { error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value,
+    options: {
+      data: {
+        username: username.value,
+      },
+    },
+  })
+  if (error) {
+    alert(error.message)
+  } else {
+    routerPush({ name: '/' })
+  }
 }
-
 </script>
 <template>
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img
-        class="mx-auto h-10 w-auto"
-        src="../assets/booktin.ico"
-        alt="Booktin"
-      />
+      <img class="mx-auto h-10 w-auto" src="../assets/booktin.ico" alt="Booktin" />
       <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-        Connexion
+        S'Inscrire
       </h2>
     </div>
 
@@ -59,9 +56,7 @@ const onSubmit = async()=>{
           <div class="flex items-center justify-between">
             <label for="password" class="block text-sm/6 font-medium text-gray-900">Mot de passe</label>
             <div class="text-sm">
-              <a href="#" class="font-semibold text-primary"
-                >Mot de passe oublié ?</a
-              >
+              <a href="#" class="font-semibold text-primary">Mot de passe oublié ?</a>
             </div>
           </div>
           <div class="mt-2">
@@ -79,16 +74,16 @@ const onSubmit = async()=>{
         <div>
           <button
             @click="onSubmit"
-            class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:hover-bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Connexion
+            S'inscrire
           </button>
         </div>
       </form>
 
       <p class="mt-10 text-center text-sm/6 text-gray-500">
-        Pas encore inscrit ?
-        <router-link to="/register" class="font-semibold text-primary">S'inscrire</router-link>
+         Déjà inscrit ?
+        <router-link to="/login" class="font-semibold text-primary">Connexion</router-link>
       </p>
     </div>
   </div>
