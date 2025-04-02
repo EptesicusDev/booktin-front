@@ -1,5 +1,20 @@
 <script lang="ts" setup>
 
+const onSubmit = async()=>{
+    if(!email.value && !password.value) return;
+
+    const {error} = await supabase.auth.signInWithPassword({
+        email: email.value,
+        password: password.value
+    })
+    if(error){
+        alert(error.message)
+    }else{
+        router.push({name:'/'})
+    }
+    
+}
+
 </script>
 <template>
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -63,8 +78,8 @@
 
       <p class="mt-10 text-center text-sm/6 text-gray-500">
         Not a member?
-        <a href="#" class="font-semibold text-primary hover:text-indigo-500"
-          >Register</a
+        <a href="#" class="font-semibold text-primary"
+          >Register</a 
         >
       </p>
     </div>
