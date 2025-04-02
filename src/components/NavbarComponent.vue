@@ -119,7 +119,7 @@
               </button>
             </div>
             <div v-else>
-              <a href="#" class="text-primary font-bold">Connexion &rarr;</a>
+              <router-link to="/login" class="text-primary font-bold">Connexion &rarr;</router-link>
             </div>
           </div>
         </div>
