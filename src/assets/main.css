@@ -16,6 +16,22 @@
     color: #FFEDD7;
 }
 
+@utility hover-bg-primary {
+    background-color: #f56c22;
+}
+
+@utility hover-text-primary {
+    color: #f56c22;
+}
+
+@utility hover-bg-secondary {
+    background-color: #fff5e8;
+}
+
+@utility hover-text-secondary {
+    color: #fff5e8;
+}
+
 @utility card-title {
     font-size: 1.2em;
     font-weight: 700;
