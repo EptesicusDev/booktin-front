@@ -3,27 +3,21 @@ import { ref } from 'vue'
 import { supabase } from '@/supabase'
 import { useRouter } from 'vue-router'
 
-const { push: routerPush } = useRouter()
+const router = useRouter()
 
 const email = ref('')
-const username = ref('')
 const password = ref('')
 
 const onSubmit = async () => {
-  if (!email.value || !username.value || !password.value) return
+  if (!email.value || !password.value) return
   const { error } = await supabase.auth.signUp({
     email: email.value,
-    password: password.value,
-    options: {
-      data: {
-        username: username.value,
-      },
-    },
+    password: password.value
   })
   if (error) {
     alert(error.message)
   } else {
-    routerPush({ name: '/' })
+    router.push("/")
   }
 }
 </script>
@@ -37,13 +31,14 @@ const onSubmit = async () => {
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6">
         <div>
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Adresse mail</label>
           <div class="mt-2">
             <input
               type="email"
               name="email"
+              v-model="email"
               id="email"
               autocomplete="email"
               required
@@ -54,7 +49,7 @@ const onSubmit = async () => {
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm/6 font-medium text-gray-900">Mot de passe</label>
+            <label for="password"  class="block text-sm/6 font-medium text-gray-900">Mot de passe</label>
             <div class="text-sm">
               <a href="#" class="font-semibold text-primary">Mot de passe oublié ?</a>
             </div>
@@ -62,6 +57,7 @@ const onSubmit = async () => {
           <div class="mt-2">
             <input
               type="password"
+              v-model="password"
               name="password"
               id="password"
               autocomplete="current-password"
@@ -73,6 +69,7 @@ const onSubmit = async () => {
 
         <div>
           <button
+          type="button"
             @click="onSubmit"
             class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:hover-bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >

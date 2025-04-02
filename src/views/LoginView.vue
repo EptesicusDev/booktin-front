@@ -20,7 +20,7 @@ const onSubmit = async()=>{
     if(error){
         alert(error.message)
     }else{
-        router.push({name:'/'})
+        router.push("/")
     }
     
 }
@@ -40,13 +40,14 @@ const onSubmit = async()=>{
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6">
         <div>
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Adresse mail</label>
           <div class="mt-2">
             <input
               type="email"
               name="email"
+              v-model="email"
               id="email"
               autocomplete="email"
               required
@@ -68,6 +69,7 @@ const onSubmit = async()=>{
             <input
               type="password"
               name="password"
+              v-model="password"
               id="password"
               autocomplete="current-password"
               required
@@ -78,6 +80,7 @@ const onSubmit = async()=>{
 
         <div>
           <button
+            type="button"
             @click="onSubmit"
             class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
