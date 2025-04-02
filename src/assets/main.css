@@ -16,9 +16,27 @@
     color: #FFEDD7;
 }
 
+@utility card-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: black;
+}
+
+@utility card-dim {
+    font-size: 0.8em;
+    color: oklch(0.446 0.03 256.802);
+}
+
+@utility section-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: black;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    color: oklch(0.373 0.034 259.733);
 }
