@@ -1,4 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import { ref, onMounted} from 'vue'
+import { supabase } from '../supabase'
+
+
+const user = ref();
+
+const fetchUser = async () => {
+  const { data } = await supabase.auth.getSession();
+  user.value = data.session?.user || null;
+};
+
+onMounted(() => {
+  fetchUser();
+
+});
+
+
+</script>
 <template>
   <nav class="bg-secondary">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -58,7 +77,7 @@
 
           <!-- Profile dropdown -->
           <div class="relative ml-3">
-            <div v-if="false">
+            <div v-if="user != null">
               <button type="button"
                 class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
