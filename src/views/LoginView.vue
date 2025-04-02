@@ -1,5 +1,15 @@
 <script lang="ts" setup>
 
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import { supabase } from '@/supabase'
+
+
+const router = useRouter()
+
+const email = ref('')
+const password = ref('')
+
 const onSubmit = async()=>{
     if(!email.value && !password.value) return;
 
@@ -68,7 +78,7 @@ const onSubmit = async()=>{
 
         <div>
           <button
-            type="submit"
+            @click="onSubmit"
             class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Sign in
