@@ -31,7 +31,7 @@ const router = createRouter({
     {
       path: '/pricing',
       name: 'pricing',
-      component: LoginView
+      component: PricingView
     }
   ]
 })
