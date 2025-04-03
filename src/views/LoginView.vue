@@ -1,42 +1,32 @@
 <script lang="ts" setup>
-
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { supabase } from '@/supabase'
-
 
 const router = useRouter()
 
 const email = ref('')
 const password = ref('')
 
-const onSubmit = async()=>{
-    if(!email.value && !password.value) return;
+const onSubmit = async () => {
+  if (!email.value && !password.value) return
 
-    const {error} = await supabase.auth.signInWithPassword({
-        email: email.value,
-        password: password.value
-    })
-    if(error){
-        alert(error.message)
-    }else{
-        router.push("/")
-    }
-    
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value,
+  })
+  if (error) {
+    alert(error.message)
+  } else {
+    router.push('/')
+  }
 }
-
 </script>
 <template>
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img
-        class="mx-auto h-10 w-auto"
-        src="../assets/booktin.ico"
-        alt="Booktin"
-      />
-      <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-        Connexion
-      </h2>
+      <img class="mx-auto h-10 w-auto" src="../assets/booktin.ico" alt="Booktin" />
+      <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Connexion</h2>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -58,11 +48,11 @@ const onSubmit = async()=>{
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm/6 font-medium text-gray-900">Mot de passe</label>
+            <label for="password" class="block text-sm/6 font-medium text-gray-900"
+              >Mot de passe</label
+            >
             <div class="text-sm">
-              <a href="#" class="font-semibold text-primary"
-                >Mot de passe oublié ?</a
-              >
+              <a href="#" class="font-semibold text-primary">Mot de passe oublié ?</a>
             </div>
           </div>
           <div class="mt-2">
@@ -82,7 +72,7 @@ const onSubmit = async()=>{
           <button
             type="button"
             @click="onSubmit"
-            class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:hover-bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Connexion
           </button>

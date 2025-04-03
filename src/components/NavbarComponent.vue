@@ -10,6 +10,7 @@ const user = ref()
 const fetchUser = async () => {
   const { data } = await supabase.auth.getSession()
   user.value = data.session?.user || null
+  console.log(user.value)
 }
 
 onMounted(() => {
@@ -83,6 +84,7 @@ const navigation = [
           <Menu as="div" class="relative ml-3">
             <div v-if="user != null">
               <MenuButton
+                @click="isProfileOpen = true"
                 class="relative flex rounded-full bg-black text-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary focus:outline-hidden"
               >
                 <span class="absolute -inset-1.5" />
