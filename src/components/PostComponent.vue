@@ -2,13 +2,14 @@
 import { defineProps } from 'vue'
 
 const props = defineProps<{
-  date: string,
-  title: string,
-  content: string,
-  imgLink: string,
-  company: string,
-  site: string,
-  address: string,
+  id: string
+  date: string
+  title: string
+  content: string
+  imgLink: string
+  company: string
+  site: string
+  address: string
   activity: string
 }>()
 </script>
@@ -20,11 +21,13 @@ const props = defineProps<{
         <div class="flex">
           <p class="my-auto card-dim mr-4">{{ props.date }}</p>
           <span
-            class="mr-1 inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset">{{
-              props.site }}</span>
+            class="mr-1 inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset"
+            >{{ props.site }}</span
+          >
           <span
-            class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">{{
-              props.activity }}</span>
+            class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset"
+            >{{ props.activity }}</span
+          >
         </div>
         <p class="card-title my-4">{{ props.title }}</p>
         <p>{{ props.content }}</p>
@@ -32,13 +35,32 @@ const props = defineProps<{
       <div class="pt-4">
         <p class="font-bold text-black">{{ props.company }}</p>
         <p>{{ props.address }}</p>
-        <a href="" class="text-primary flex m-2">
-          <p class="mr-2 underline">Découvrir</p>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+        <router-link
+          :to="{
+            name: 'business',
+            params: {
+              id: props.id,
+            },
+          }"
+        >
+          <div class="text-primary flex m-2">
+            <p class="mr-2 underline">Découvrir</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
