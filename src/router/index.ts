@@ -29,8 +29,8 @@ const router = createRouter({
       component: BusinessView
     },
     {
-      path:"/pricing",
-      name:"pricing",
+      path: '/pricing',
+      name: 'pricing',
       component: PricingView
     }
   ]
