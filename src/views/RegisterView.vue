@@ -17,7 +17,10 @@ const onSubmit = async () => {
   if (error) {
     alert(error.message)
   } else {
-    router.push("/")
+    router.push("/");
+    setTimeout(() => {
+      window.location.reload(); 
+    }, 100);
   }
 }
 </script>
