@@ -12,12 +12,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@supabase/supabase-js": "^2.49.4",
-=======
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
->>>>>>> dev
     "@tailwindcss/vite": "^4.0.17",
     "pinia": "^3.0.1",
     "tailwindcss": "^4.0.17",
