@@ -81,7 +81,7 @@ const navigation = [
 
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
-            <div>
+            <div v-if="user != null">
               <MenuButton
                 class="relative flex rounded-full bg-black text-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary focus:outline-hidden"
               >
@@ -94,46 +94,10 @@ const navigation = [
                 />
               </MenuButton>
             </div>
-            <transition
-              enter-active-class="transition ease-out duration-100"
-              enter-from-class="transform opacity-0 scale-95"
-              enter-to-class="transform opacity-100 scale-100"
-              leave-active-class="transition ease-in duration-75"
-              leave-from-class="transform opacity-100 scale-100"
-              leave-to-class="transform opacity-0 scale-95"
-            >
-              <MenuItems
-                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden"
-              >
-                <MenuItem v-slot="{ active }">
-                  <a
-                    href="#"
-                    :class="[active ? 'bg-gray-100 outline-hidden' : '', 'block px-4 py-2 text-sm']"
-                    >Accueil</a
-                  >
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <a
-                    href="#"
-                    :class="[
-                      active ? 'bg-gray-100 outline-hidden' : '',
-                      'block px-4 py-2 text-sm text-gray-700',
-                    ]"
-                    >Settings</a
-                  >
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <a
-                    href="#"
-                    :class="[
-                      active ? 'bg-gray-100 outline-hidden' : '',
-                      'block px-4 py-2 text-sm text-gray-700',
-                    ]"
-                    >Sign out</a
-                  >
-                </MenuItem>
-              </MenuItems>
-            </transition>
+            <div v-else>
+              <router-link to="/login" class="text-primary font-bold">Connexion &rarr;</router-link>
+            </div>
+            <ProfileComponent :isOpen="isProfileOpen" @close="isProfileOpen = false" :user="user" />
           </Menu>
         </div>
       </div>
