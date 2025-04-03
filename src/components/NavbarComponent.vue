@@ -54,16 +54,16 @@ const navigation = [
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <a
+              <router-link
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
+                :to="item.href"
                 :class="[
                   item.current ? 'bg-primary text-white' : 'text-black hover:text-gray-800',
                   'rounded-md px-3 py-2 text-sm font-medium',
                 ]"
                 :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}</a
+                >{{ item.name }}</router-link
               >
             </div>
           </div>
