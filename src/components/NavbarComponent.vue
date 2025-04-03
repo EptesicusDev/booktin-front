@@ -28,7 +28,7 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
-  { name: 'Accueil', href: '#', current: true },
+  { name: 'Accueil', href: '/', current: true },
   { name: 'Entreprises', href: '#', current: false },
   { name: 'Booktin+', href: '/pricing', current: false },
 ]

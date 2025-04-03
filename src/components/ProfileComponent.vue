@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import { defineProps, defineEmits } from "vue";
-import { supabase } from "../supabase";
+import { supabase } from "../supabase"; 
 
 const props = defineProps({
   isOpen: Boolean,
@@ -46,30 +46,7 @@ const logOut = async () => {
           </h3>
 
           <form class="space-y-4 mt-4">
-            <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Adresse mail
-              </label>
-              <input
-                type="email"
-                id="email"
-                class="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:text-white"
-                placeholder="name@company.com"
-                required
-              />
-            </div>
-            <div>
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Mot de passe
-              </label>
-              <input
-                type="password"
-                id="password"
-                class="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:text-white"
-                placeholder="••••••••"
-                required
-              />
-            </div>
+          
             <button
               type="submit"
               @click="logOut"
