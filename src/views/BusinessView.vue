@@ -41,7 +41,6 @@ const products = [
 const initialize = async () => {
   var { data } = await supabase.from('entreprise').select().eq('en_id', route.params.id).limit(1)
   business.value = data[0]
-  console.log(business.value)
 }
 
 onMounted(() => initialize())
