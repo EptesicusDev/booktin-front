@@ -2,10 +2,12 @@
 import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
 import ProfileComponent from '@/components/ProfileComponent.vue'
+import ShoppingCartDrawerComponent from '@/components/ShoppingCartDrawerComponent.vue'
 
 const isProfileOpen = ref(false)
-
 const user = ref()
+
+const isCartOpen = ref(false)
 
 const fetchUser = async () => {
   const { data } = await supabase.auth.getSession()
@@ -16,6 +18,7 @@ const fetchUser = async () => {
 onMounted(() => {
   fetchUser()
 })
+
 import {
   Disclosure,
   DisclosureButton,
@@ -25,7 +28,7 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/vue'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
   { name: 'Accueil', href: '/', current: true },
@@ -33,12 +36,12 @@ const navigation = [
   { name: 'Booktin+', href: '/pricing', current: false },
 ]
 </script>
+
 <template>
   <Disclosure as="nav" class="bg-secondary" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
           <DisclosureButton
             class="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:text-gray-800 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
           >
@@ -68,21 +71,19 @@ const navigation = [
             </div>
           </div>
         </div>
+
         <div
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
-          <button
-            type="button"
-            class="relative rounded-full p-1 text-black hover:text-gray-800 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
-          >
-            <span class="absolute -inset-1.5" />
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="size-6" aria-hidden="true" />
-          </button>
+          <div v-if="user != null" class="flex items-center">
+            <button type="button" @click="isCartOpen = true">
+              <ShoppingBagIcon class="size-7" aria-hidden="true" />
+              
+            </button>
 
-          <!-- Profile dropdown -->
-          <Menu as="div" class="relative ml-3">
-            <div v-if="user != null">
+            <ShoppingCartDrawerComponent :isOpen="isCartOpen" @close="isCartOpen = false" />
+
+            <Menu as="div" class="relative ml-3">
               <MenuButton
                 @click="isProfileOpen = true"
                 class="relative flex rounded-full bg-black text-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary focus:outline-hidden"
@@ -95,12 +96,13 @@ const navigation = [
                   alt=""
                 />
               </MenuButton>
-            </div>
-            <div v-else>
-              <router-link to="/login" class="text-primary font-bold">Connexion &rarr;</router-link>
-            </div>
-            <ProfileComponent :isOpen="isProfileOpen" @close="isProfileOpen = false" :user="user" />
-          </Menu>
+              <ProfileComponent :isOpen="isProfileOpen" @close="isProfileOpen = false" :user="user" />
+            </Menu>
+          </div>
+
+          <div v-else>
+            <router-link to="/login" class="text-primary font-bold">Connexion &rarr;</router-link>
+          </div>
         </div>
       </div>
     </div>

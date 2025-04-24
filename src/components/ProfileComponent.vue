@@ -34,9 +34,9 @@ const logOut = async () => {
   <Teleport to="body">
     <div
       v-if="isOpen"
-      class="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50"
+      class="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50 "
     >
-      <div class="relative p-4 w-full max-w-md bg-white rounded-lg shadow-lg dark:bg-gray-700">
+      <div class="relative p-4 w-full max-w-md bg-secondary rounded-lg shadow-lg" >
         <button
           @click="emit('close')"
           class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -45,7 +45,7 @@ const logOut = async () => {
         </button>
 
         <div class="p-5">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 class="text-xl font-semibold text-gray-900">
             Profil Utilisateur de {{ user.email }}
           </h3>
           
