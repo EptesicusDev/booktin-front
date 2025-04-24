@@ -83,7 +83,7 @@ onMounted(() => {
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
         <a
-          href="#"
+          href="#contact"
           class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >Contacter</a
         >
@@ -123,8 +123,54 @@ onMounted(() => {
           </div>
           <p class="text-sm font-medium text-gray-900">{{ product.price }}</p>
         </div>
+        <button
+          class="my-2 w-full flex-none rounded-md bg-primary px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:hover-bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        >
+          Ajouter au panier
+        </button>
       </div>
     </div>
   </div>
-  <div></div>
+  <div
+    id="contact"
+    class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-12 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8"
+  >
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Où nous trouver ?</h2>
+      <p class="mt-4 text-gray-500">
+        The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The
+        powder coated steel divider separates active cards from new ones, or can be used to archive
+        important task lists.
+      </p>
+
+      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Site Web</dt>
+          <a href="#" class="mt-2 text-sm text-blue-500 underline">site-web-genial.com</a>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Téléphone</dt>
+          <dd class="mt-2 text-sm text-gray-500">(+33) 2 43 25 55 66</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Couriel</dt>
+          <dd class="mt-2 text-sm text-gray-500">contact@chaletjp.fr</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Adresse</dt>
+          <dd class="mt-2 text-sm text-gray-500">2 rue de la Crespinère, 69450 Vaux</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="gap-4 sm:gap-6 lg:gap-8">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85292.6705301945!2d6.932704911039433!3d45.42332136453705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47890909fd5ffb93%3A0x408ab2ae4baa830!2s73150%20Val-d&#39;Is%C3%A8re!5e1!3m2!1sfr!2sfr!4v1745502792608!5m2!1sfr!2sfr"
+        width="600"
+        height="450"
+        style="border: 0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
 </template>
