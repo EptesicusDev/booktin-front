@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { supabase } from '@/supabase'
 import { useRoute } from 'vue-router'
+
+import  { getBusinessById } from '@/models/model'
 
 const route = useRoute()
 const business = ref()
@@ -38,13 +39,17 @@ const products = [
   },
 ]
 
-const initialize = async () => {
-  var { data } = await supabase.from('entreprise').select().eq('en_id', route.params.id).limit(1)
-  business.value = data![0]
-}
-
 onMounted(() => {
-  initialize()
+    var data = getBusinessById(route.params.id)
+    .then((data) => {
+      business.value = data
+    })
+    .catch((error) => {
+      console.error('Error fetching business data:', error)
+    })
+
+    business.value = data![0]
+
 })
 </script>
 <template>
