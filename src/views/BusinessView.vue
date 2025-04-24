@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { defineProps, reactive } from 'vue'
+import { ref, onMounted } from 'vue'
+import { supabase } from '@/supabase'
+import { useRoute } from 'vue-router'
 
-const props = defineProps<{
-  id: string
-}>()
-
-const business = reactive({})
-
+const route = useRoute()
+const business = ref()
 const products = [
   {
     id: 1,
@@ -39,6 +37,14 @@ const products = [
     color: 'Location à la semaine',
   },
 ]
+
+const initialize = async () => {
+  var { data } = await supabase.from('entreprise').select().eq('en_id', route.params.id).limit(1)
+  business.value = data[0]
+  console.log(business.value)
+}
+
+onMounted(() => initialize())
 </script>
 <template>
   <div
@@ -58,14 +64,14 @@ const products = [
       />
       <defs>
         <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-          <stop stop-color="#7775D6" />
+          <stop stop-color="#1115D6" />
           <stop offset="1" stop-color="#E935C1" />
         </radialGradient>
       </defs>
     </svg>
     <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
       <h2 class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
-        Le Chalet de JP
+        {{ business.en_nom }}
       </h2>
       <p class="mt-6 text-lg/8 text-pretty text-gray-300">
         Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
@@ -75,10 +81,10 @@ const products = [
         <a
           href="#"
           class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >Get started</a
+          >Contacter</a
         >
         <a href="#" class="text-sm/6 font-semibold text-white"
-          >Learn more <span aria-hidden="true">→</span></a
+          >A propos <span aria-hidden="true">→</span></a
         >
       </div>
     </div>
@@ -116,4 +122,5 @@ const products = [
       </div>
     </div>
   </div>
+  <div></div>
 </template>

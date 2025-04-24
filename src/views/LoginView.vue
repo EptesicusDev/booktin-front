@@ -4,7 +4,6 @@ import { ref } from 'vue'
 import { supabase } from '@/supabase'
 
 const router = useRouter()
-
 const email = ref('')
 const password = ref('')
 
@@ -18,10 +17,10 @@ const onSubmit = async () => {
   if (error) {
     alert(error.message)
   } else {
-    router.push('/');
+    router.push('/')
     setTimeout(() => {
-      window.location.reload(); 
-    }, 100);
+      window.location.reload()
+    }, 100)
   }
 }
 </script>

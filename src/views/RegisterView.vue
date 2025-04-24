@@ -4,7 +4,6 @@ import { supabase } from '@/supabase'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
 const email = ref('')
 const password = ref('')
 
@@ -12,15 +11,15 @@ const onSubmit = async () => {
   if (!email.value || !password.value) return
   const { error } = await supabase.auth.signUp({
     email: email.value,
-    password: password.value
+    password: password.value,
   })
   if (error) {
     alert(error.message)
   } else {
-    router.push("/");
+    router.push('/')
     setTimeout(() => {
-      window.location.reload(); 
-    }, 100);
+      window.location.reload()
+    }, 100)
   }
 }
 </script>
@@ -52,7 +51,9 @@ const onSubmit = async () => {
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="password"  class="block text-sm/6 font-medium text-gray-900">Mot de passe</label>
+            <label for="password" class="block text-sm/6 font-medium text-gray-900"
+              >Mot de passe</label
+            >
             <div class="text-sm">
               <a href="#" class="font-semibold text-primary">Mot de passe oublié ?</a>
             </div>
@@ -72,7 +73,7 @@ const onSubmit = async () => {
 
         <div>
           <button
-          type="button"
+            type="button"
             @click="onSubmit"
             class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:hover-bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
@@ -82,7 +83,7 @@ const onSubmit = async () => {
       </form>
 
       <p class="mt-10 text-center text-sm/6 text-gray-500">
-         Déjà inscrit ?
+        Déjà inscrit ?
         <router-link to="/login" class="font-semibold text-primary">Connexion</router-link>
       </p>
     </div>
