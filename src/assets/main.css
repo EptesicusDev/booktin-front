@@ -49,6 +49,10 @@
     color: black;
 }
 
+@utility border-primary {
+    border-color: #E45F17;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;

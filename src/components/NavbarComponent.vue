@@ -75,9 +75,12 @@ const navigation = [
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
           <div v-if="user != null" class="flex items-center">
-            <button type="button" @click="isCartOpen = true">
-              <ShoppingBagIcon class="size-7" aria-hidden="true" />
-              
+            <button
+              type="button"
+              @click="isCartOpen = true"
+              class="rounded-full border border-primary border-2 p-1"
+            >
+              <ShoppingBagIcon class="size-5 text-primary" aria-hidden="true" />
             </button>
 
             <ShoppingCartDrawerComponent :isOpen="isCartOpen" @close="isCartOpen = false" />
@@ -95,7 +98,11 @@ const navigation = [
                   alt=""
                 />
               </MenuButton>
-              <ProfileComponent :isOpen="isProfileOpen" @close="isProfileOpen = false" :user="user" />
+              <ProfileComponent
+                :isOpen="isProfileOpen"
+                @close="isProfileOpen = false"
+                :user="user"
+              />
             </Menu>
           </div>
 
