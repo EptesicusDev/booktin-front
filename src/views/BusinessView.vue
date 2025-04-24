@@ -41,10 +41,11 @@ const products = [
 const initialize = async () => {
   var { data } = await supabase.from('entreprise').select().eq('en_id', route.params.id).limit(1)
   business.value = data[0]
-  console.log(business.value)
 }
 
-onMounted(() => initialize())
+onMounted(() => {
+  initialize()
+})
 </script>
 <template>
   <div
@@ -70,7 +71,10 @@ onMounted(() => initialize())
       </defs>
     </svg>
     <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-      <h2 class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
+      <h2
+        v-if="business != null"
+        class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl"
+      >
         {{ business.en_nom }}
       </h2>
       <p class="mt-6 text-lg/8 text-pretty text-gray-300">

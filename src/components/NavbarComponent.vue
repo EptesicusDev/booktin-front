@@ -10,7 +10,6 @@ const user = ref()
 const fetchUser = async () => {
   const { data } = await supabase.auth.getSession()
   user.value = data.session?.user || null
-  console.log(user.value)
 }
 
 onMounted(() => {
