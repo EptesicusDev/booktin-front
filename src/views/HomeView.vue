@@ -16,7 +16,7 @@ const posts: Array<{
     id: '0',
     title: 'Refonte complète de la décoration au Chalet de JP',
     content:
-      'Fini les paillassons en peau de couilles de Jhonny. Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
+      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
     date: 'Mardi 17 Dec, 2024',
     imgLink: 'https://www.chalet-montagne.com/photoslocations/82/16583/10081712.jpg',
     company: 'Le Chalet de JP',
