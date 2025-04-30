@@ -78,8 +78,7 @@ onMounted(() => {
         {{ business.en_nom }}
       </h2>
       <p class="mt-6 text-lg/8 text-pretty text-gray-300">
-        Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
-        sagittis vel nulla.
+        Le Chalet Gourmand dévoile sa nouvelle carte pour la saison hivernale. Au menu : des plats faits maison à base de produits locaux, comme la fondue savoyarde revisitée, le gratin de crozets truffé ou encore la tarte aux myrtilles des montagnes. Une ambiance conviviale autour du feu de cheminée vous attend pour une expérience culinaire chaleureuse au cœur des Alpes.
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
         <a
@@ -138,15 +137,13 @@ onMounted(() => {
     <div>
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Où nous trouver ?</h2>
       <p class="mt-4 text-gray-500">
-        The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The
-        powder coated steel divider separates active cards from new ones, or can be used to archive
-        important task lists.
+        Le Chalet Gourmand dévoile sa nouvelle carte pour la saison hivernale. Au menu : des plats faits maison à base de produits locaux, comme la fondue savoyarde revisitée, le gratin de crozets truffé ou encore la tarte aux myrtilles des montagnes. Une ambiance conviviale autour du feu de cheminée vous attend pour une expérience culinaire chaleureuse au cœur des Alpes.
       </p>
 
       <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
         <div class="border-t border-gray-200 pt-4">
           <dt class="font-medium text-gray-900">Site Web</dt>
-          <a href="#" class="mt-2 text-sm text-blue-500 underline">site-web-genial.com</a>
+          <a href="#" class="mt-2 text-sm text-blue-500 underline">chalet-jp.fr</a>
         </div>
         <div class="border-t border-gray-200 pt-4">
           <dt class="font-medium text-gray-900">Téléphone</dt>
