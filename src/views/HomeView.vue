@@ -13,30 +13,69 @@ const posts: Array<{
   activity: string
 }> = [
   {
-    id: '0',
-    title: 'Refonte complète de la décoration au Chalet de JP',
-    content:
-      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
-    date: 'Mardi 17 Dec, 2024',
-    imgLink: 'https://www.chalet-montagne.com/photoslocations/82/16583/10081712.jpg',
-    company: 'Le Chalet de JP',
-    site: "Val d'Isère",
-    address: '12 Route de Rue, 12345 Villeville',
-    activity: 'Restauration',
+    "id": "0",
+    "title": "Refonte complète de la décoration au Chalet de JP",
+    "content": "Le Chalet de JP a entièrement repensé son ambiance intérieure pour offrir une atmosphère plus chaleureuse et authentique. Bois brut, éclairage tamisé et mobilier artisanal font désormais partie du décor. Cette transformation vise à améliorer l'expérience client tout en respectant l'esprit montagnard.",
+    "date": "Mardi 17 Dec, 2024",
+    "imgLink": "https://www.chalet-montagne.com/photoslocations/82/16583/10081712.jpg",
+    "company": "Le Chalet de JP",
+    "site": "Val d'Isère",
+    "address": "12 Route de Rue, 12345 Villeville",
+    "activity": "Restauration",
+    "contact": "jp@lechalet.fr",
+    "statut": "Terminé",
+    "tags": ["décoration", "rénovation", "restauration", "montagne"]
   },
   {
-    id: '1',
-    title: "Nouveau magasin d'équipement de ski sur la station des Alpes Guez",
-    content:
-      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
-    date: 'Lundi 9 Mar, 2025',
-    imgLink: 'https://www.hotel-la-clusaz.com/wp-content/uploads/2022/02/location-laclusaz.jpg',
-    company: 'Les skis touneuf',
-    site: "Val d'Isère",
-    address: '12 Route de Rue, 12345 Villeville',
-    activity: 'Location ski',
+    "id": "1",
+    "title": "Nouveau magasin d'équipement de ski sur la station des Alpes Guez",
+    "content": "Les Skis Touneuf ouvre un nouveau point de vente à Val d'Isère. Avec un large choix de matériel dernier cri, des conseils personnalisés et un atelier d'entretien, la boutique ambitionne de devenir une référence locale pour les amateurs de glisse.",
+    "descriptionCourte": "Ouverture d’un magasin de location et vente de matériel de ski.",
+    "date": "Lundi 9 Mar, 2025",
+    "imgLink": "https://www.hotel-la-clusaz.com/wp-content/uploads/2022/02/location-laclusaz.jpg",
+    "company": "Les Skis Touneuf",
+    "site": "Val d'Isère",
+    "address": "12 Route de Rue, 12345 Villeville",
+    "activity": "Location ski",
+    "budgetEstime": "40 000 €",
+    "contact": "contact@skistouneuf.fr",
+    "statut": "En cours",
+    "tags": ["ski", "location", "ouverture", "équipement"]
   },
+  {
+    "id": "2",
+    "title": "Installation d’un espace bien-être au Refuge des Cimes",
+    "content": "Le Refuge des Cimes inaugure un tout nouvel espace spa avec jacuzzi panoramique, sauna traditionnel et salle de massage. Ce projet s’inscrit dans une volonté d’offrir à ses clients un moment de détente après une journée de ski.",
+    "descriptionCourte": "Création d’un espace bien-être avec vue sur les montagnes.",
+    "date": "Jeudi 6 Février, 2025",
+    "imgLink": "https://www.montagne-vacances.com/images/photos/refuge-spa.jpg",
+    "company": "Refuge des Cimes",
+    "site": "Les Arcs",
+    "address": "8 Route du Glacier, 73700 Bourg-Saint-Maurice",
+    "activity": "Hôtellerie",
+    "budgetEstime": "60 000 €",
+    "contact": "contact@refugedescimes.fr",
+    "statut": "En chantier",
+    "tags": ["spa", "bien-être", "hôtel", "montagne"]
+  },
+  {
+    "id": "3",
+    "title": "Modernisation du parc de remontées mécaniques",
+    "content": "La station de Tignes investit dans de nouvelles remontées mécaniques plus rapides et plus écologiques. Objectif : réduire le temps d’attente et l’impact environnemental grâce à des systèmes de motorisation de nouvelle génération.",
+    "descriptionCourte": "Nouvel investissement dans des télésièges plus performants.",
+    "date": "Vendredi 21 Mars, 2025",
+    "imgLink": "https://www.tignes.net/uploads/medias/remontee-nouvelle.jpg",
+    "company": "Société des Remontées Tignes",
+    "site": "Tignes",
+    "address": "Station Tignes Le Lac, 73320 Tignes",
+    "activity": "Infrastructure montagne",
+    "budgetEstime": "2 500 000 €",
+    "contact": "technique@remontees-tignes.fr",
+    "statut": "Planifié",
+    "tags": ["infrastructure", "remontées", "écologie", "transport"]
+  }
 ]
+
 </script>
 <template>
   <main class="flex">
